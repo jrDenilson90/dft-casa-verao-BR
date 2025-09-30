@@ -98,6 +98,12 @@
                 font-weight: 400;
             }
 
+            @media (min-width: $full-hd) {
+                font-size: 45px;
+                right: 5%;
+                bottom: 15%;
+            }
+
             @media (max-width: $notebook-size) {
                 bottom: 6.4vw;
             }
@@ -112,6 +118,12 @@
         .btnDefault {
             right: 2vw;
             bottom: 2vw;
+
+            @media (min-width: $full-hd) {
+                right: 5%;
+                bottom: 8%;
+            }
+
             @media (max-width: $tablet-size) {
                 right: 3vw;
                 bottom: 3vw;
