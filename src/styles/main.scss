@@ -5,7 +5,6 @@
 .textCenter {
     text-align: center;
     font-size: 2.2em;
-    // color: red;
     margin: 1.8em 5%;
     font-weight: 200;
     line-height: 1.1;
@@ -31,12 +30,12 @@
     pointer-events: none;
     transition-duration: .3s;
     p {
-        font-size: 1.2em;
-        padding: .3em 1.6em;
+        font-size: .96vw;
+        padding: .3vw 1.6vw;
         color: #fff;
 
-        @media (max-width: $notebook-size) {
-            font-size: .9em;
+        @media (min-width: $full-hd) {
+            font-size: 1.3em;
             padding: .3em 1.4em;
         }
 
@@ -50,19 +49,31 @@
 .boxGrid {
     width: 85%;
     display: grid;
+    // grid: 
+    //     'A A B B'
+    //     'C C D D';
     grid: 
-        'A A B B'
-        'C C D D';
-    grid-template-rows: 1fr 1fr;
+        'A A B B';
+    grid-template-rows: 1fr 0fr;
     grid-template-columns: repeat(1fr, 1fr);
     gap: .5em;
     margin: 0 auto;
+    @media (max-width: $tablet-size) {
+        grid: 
+        'A A' 
+        'B B';
+    }
 
     .link {
         display: flex;
         align-items: stretch;
         position: relative;
         border-radius: 3em;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: 2em;
         overflow: hidden;
 
         &.link1 {
@@ -85,33 +96,52 @@
             display: block;
         }
 
-        .text {
+        .boxText {
+            width: 100%;
             position: absolute;
-            color: #fff;
-            font-size: 2.2vw;
-            font-weight: 100;
-            text-align: right;
-            line-height: 1;
-            bottom: 5.8vw;
-            right: 2vw;
-            b {
-                font-weight: 400;
-            }
-
+            // padding: 2vw 2vw 5vw;
+            padding: 2vw;
+            background-image: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,0));
+            display: flex;
+            flex-direction: column;
+            gap: .5vw;
             @media (min-width: $full-hd) {
-                font-size: 45px;
-                right: 5%;
-                bottom: 15%;
+                gap: 5px;
+                padding: 5%;
             }
-
-            @media (max-width: $notebook-size) {
-                bottom: 6.4vw;
-            }
-
             @media (max-width: $tablet-size) {
-                font-size: 4.5vw;
-                bottom: 10vw;
-                right: 3vw;
+                padding: 3vw 5vw;
+            }
+            .text {
+                color: #fff;
+                font-size: 1.6vw;
+                font-weight: 100;
+                text-align: left;
+                line-height: 1;
+                b {
+                    font-weight: 400;
+                }
+                &.bold {
+                    font-weight: 700;
+                }
+                &.light {
+                    font-weight: 100;
+                }
+
+                @media (min-width: $full-hd) {
+                    font-size: 30px;
+                    right: 5%;
+                    bottom: 17%;
+                }
+    
+                @media (max-width: $notebook-size) {
+                    bottom: 6.4vw;
+                }
+    
+                @media (max-width: $tablet-size) {
+                    bottom: 10vw;
+                    right: 3vw;
+                }
             }
         }
 
@@ -121,7 +151,7 @@
 
             @media (min-width: $full-hd) {
                 right: 5%;
-                bottom: 8%;
+                bottom: 5%;
             }
 
             @media (max-width: $tablet-size) {
@@ -136,6 +166,9 @@
         }
 
         &:hover {
+            .boxText {
+                background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+            }
             .btnDefault {
                 background-color: #fff;
                 p {

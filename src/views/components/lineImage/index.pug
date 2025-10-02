@@ -18,7 +18,9 @@ mixin component-lineImage(pairs, classConteiner)
                         data-creative=pair.dataCreative,
                         data-name=pair.dataName
                     )
-                p.text !{pair.textImg}
+                .boxText
+                    p.text.bold !{pair.textImgB}
+                    p.text.light !{pair.textImgL}
                 if pair.button
                     button.btnDefault(tabindex='-1')
                         p conferir
